@@ -1,21 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 
 <meta charset="UTF-8">
 
-<title>Most Liked Games</title>
+<title>Most Liked Games – Tyrone Unblocked Games</title>
+
+<meta name="description" content="Discover the most liked games on Tyrone Unblocked Games. Play the favorite browser games loved by players worldwide.">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <link rel="stylesheet" href="style.css">
-
-<script src="games.js"></script>
 
 </head>
 
 <body>
 
-<h1>Most Liked Games</h1>
+<header>
+
+<h1>Tyrone Unblocked Games</h1>
 
 <nav>
 
@@ -23,21 +26,69 @@
 <a href="new-games.html">New Games</a>
 <a href="popular-games.html">Popular Games</a>
 <a href="liked-games.html">Most Liked</a>
-  <a href="trending-games.html">Trending Games</a>
-  <a href="most-played-week.html">Most Played Week</a>
+<a href="trending-games.html">Trending Games</a>
+<a href="most-played-week.html">Most Played Week</a>
 <a href="random-games.html">Random Games</a>
-
+<a href="categories.html">Categories</a>
 
 </nav>
 
-<div id="liked-games" class="game-grid"></div>
+</header>
+
+
+<section class="seo-text">
+
+<h2>Most Liked Browser Games</h2>
+
+<p>
+These are the most liked games on Tyrone Unblocked Games. Players from around the world vote and enjoy these titles daily.
+</p>
+
+</section>
+
+
+<section class="game-section">
+
+<div id="games" class="game-grid"></div>
+
+</section>
+
+
+<footer>
+
+<p>© Tyrone Unblocked Games</p>
+
+</footer>
+
 
 <script>
 
-loadGames("likes","liked-games")
+async function loadGames(){
+
+const response = await fetch("https://tyroneunblockedgames.com/generate_github_games_json.php?type=likes");
+
+const games = await response.json();
+
+let html = "";
+
+games.forEach(game => {
+
+html += `
+<a class="game-card" href="${game.link}" target="_blank">
+<img src="${game.thumb}" alt="${game.name}">
+<span>${game.name}</span>
+</a>
+`;
+
+});
+
+document.getElementById("games").innerHTML = html;
+
+}
+
+loadGames();
 
 </script>
 
 </body>
-
 </html>
