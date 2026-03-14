@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,77 +5,40 @@
 
 <meta charset="UTF-8">
 
-<title>New Unblocked Games</title>
+<title>Tyrone Unblocked Games Directory</title>
 
 <meta name="description"
-content="Discover the newest unblocked games on Tyrone Unblocked Games. Play new browser games instantly with no download required.">
-
-<meta name="viewport" content="width=device-width, initial-scale=1">
+content="Play Tyrone Unblocked Games online for free. Discover hundreds of browser games playable at school.">
 
 <link rel="stylesheet" href="style.css">
+
+<script src="games.js"></script>
 
 </head>
 
 <body>
 
-<header>
+<h1>Tyrone Unblocked Games</h1>
 
-<h1>New Unblocked Games</h1>
+<nav>
 
-<p>
-Play the newest games added to Tyrone Unblocked Games.
-</p>
+<a href="index.html">Home</a>
+<a href="new-games.html">New Games</a>
+<a href="popular-games.html">Popular Games</a>
+<a href="liked-games.html">Most Liked</a>
+<a href="random-games.html">Random Games</a>
 
-</header>
+</nav>
 
+<h2>Popular Games</h2>
 
-<div id="game-grid" class="game-grid"></div>
-
+<div id="popular-games" class="game-grid"></div>
 
 <script>
 
-fetch("https://tyroneunblockedgames.com/generate_json.php?type=new")
-
-.then(res => res.json())
-
-.then(data => {
-
-const container = document.getElementById("game-grid")
-
-data.forEach(game => {
-
-const card = document.createElement("div")
-
-card.className = "game-card"
-
-card.innerHTML = `
-
-<a href="${game.link}" target="_blank">
-
-<img src="${game.thumb}" alt="${game.name}">
-
-<h3>${game.name}</h3>
-
-</a>
-
-`
-
-container.appendChild(card)
-
-})
-
-})
+loadGames("popular","popular-games")
 
 </script>
-
-
-<footer>
-
-<a href="index.html">Home</a> |
-
-<a href="popular-games.html">Popular Games</a>
-
-</footer>
 
 </body>
 
