@@ -1,6 +1,6 @@
 function loadGames(type, containerId){
 
-fetch("https://tyroneunblockedgames.com/generate_games_json.php?type="+type)
+fetch("https://tyroneunblockedgames.com/generate_github_games_json.php?type="+type)
 
 .then(res => res.json())
 
