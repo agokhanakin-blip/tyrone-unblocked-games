@@ -1,47 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-<meta name="google-site-verification" content="r1XwUlGac75uz0NiMVz84D5zU4Uzcc-vjzxvecI-SP0" />
 <meta charset="UTF-8">
+<title>Tyrone Unblocked Games – Free Browser Games</title>
 
-<title>Tyrone Unblocked Games Directory</title>
+<meta name="description" content="Play the best unblocked games online at school. Tyrone Unblocked Games offers hundreds of free browser games including action, racing, multiplayer and puzzle games.">
 
-<meta name="description"
-content="Play Tyrone Unblocked Games online for free. Discover hundreds of browser games playable at school.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <link rel="stylesheet" href="style.css">
-
-<script src="games.js"></script>
-
 </head>
 
 <body>
 
+<header>
 <h1>Tyrone Unblocked Games</h1>
 
 <nav>
-
-<a href="index.html">Home</a>
 <a href="new-games.html">New Games</a>
 <a href="popular-games.html">Popular Games</a>
-<a href="liked-games.html">Most Liked</a>
-  <a href="trending-games.html">Trending Games</a>
-  <a href="most-played-week.html">Most Played Week</a>
-<a href="random-games.html">Random Games</a>
-
+<a href="categories.html">Game Categories</a>
 </nav>
+</header>
+
+
+<section class="seo-text">
+
+<h2>Play Unblocked Games Online</h2>
+
+<p>
+Tyrone Unblocked Games is one of the most popular destinations for playing free browser games online.
+Our platform offers hundreds of HTML5 games that run directly in your browser without downloads.
+</p>
+
+<p>
+Players can enjoy action games, racing games, puzzle games, multiplayer experiences and many other categories.
+Whether you are at school, home, or using a Chromebook, Tyrone Unblocked Games lets you play instantly.
+</p>
+
+<p>
+Discover the <a href="popular-games.html">most popular games</a> played by thousands of users or explore the
+<a href="new-games.html">newly added games</a> updated regularly on the platform.
+</p>
+
+</section>
+
+
+<section class="game-section">
 
 <h2>Popular Games</h2>
 
 <div id="popular-games" class="game-grid"></div>
 
+</section>
+
+
+<section class="game-section">
+
+<h2>New Games</h2>
+
+<div id="new-games" class="game-grid"></div>
+
+</section>
+
+
+<footer>
+
+<p>
+© Tyrone Unblocked Games – Play free games online.
+</p>
+
+</footer>
+
+
 <script>
 
-loadGames("popular","popular-games")
+async function loadGames(type, container){
+
+const response = await fetch("https://tyroneunblockedgames.com/generate_github_games_json.php?type=" + type);
+
+const games = await response.json();
+
+let html = "";
+
+games.slice(0,12).forEach(game => {
+
+html += `
+<a class="game-card" href="${game.link}" target="_blank">
+
+<img src="${game.thumb}" alt="${game.name}">
+
+<span>${game.name}</span>
+
+</a>
+`;
+
+});
+
+document.getElementById(container).innerHTML = html;
+
+}
+
+loadGames("popular","popular-games");
+loadGames("new","new-games");
 
 </script>
 
 </body>
-
 </html>
