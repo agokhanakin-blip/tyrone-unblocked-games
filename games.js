@@ -1,20 +1,25 @@
-function loadGames(endpoint, containerId, limit = 36) {
+function loadGames(type, containerId){
 
-fetch(endpoint)
+fetch("https://tyroneunblockedgames.com/generate_games_json.php?type="+type)
+
 .then(res => res.json())
+
 .then(data => {
 
 const container = document.getElementById(containerId)
 
-data.slice(0, limit).forEach(game => {
+container.innerHTML=""
+
+data.forEach(game => {
 
 const card = document.createElement("div")
-card.className = "game-card"
+
+card.className="game-card"
 
 card.innerHTML = `
 <a href="${game.link}" target="_blank">
 <img src="${game.thumb}" alt="${game.name}">
-<p>${game.name}</p>
+<h3>${game.name}</h3>
 </a>
 `
 
@@ -23,6 +28,5 @@ container.appendChild(card)
 })
 
 })
-.catch(err => console.log(err))
 
 }
