@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://agokhanakin-blip.github.io/tyrone-unblocked-games/sitemap.xml
