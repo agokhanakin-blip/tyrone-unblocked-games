@@ -1,0 +1,29 @@
+body{
+font-family:Arial;
+background:#0f0f17;
+color:white;
+padding:40px;
+text-align:center;
+}
+
+.games{
+display:grid;
+grid-template-columns:repeat(auto-fill,minmax(160px,1fr));
+gap:20px;
+margin-top:40px;
+}
+
+.game-card img{
+width:100%;
+border-radius:8px;
+}
+
+.game-card a{
+color:white;
+text-decoration:none;
+font-size:14px;
+}
+
+.game-card p{
+margin-top:5px;
+}
